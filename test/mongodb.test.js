@@ -38,7 +38,7 @@ describe('lazyConnect', function() {
     });
 
     ds.on('error', function(err) {
-      err.message.should.containEql('ECONNREFUSED');
+      err.message.should.containEql('failed to connect');
       done();
     });
   });
@@ -152,7 +152,7 @@ describe('mongodb connector', function() {
       });
       ds.ping(function(err) {
         (!!err).should.be.true;
-        err.message.should.match(/connect ECONNREFUSED/);
+        err.message.should.match(/failed to connect/);
         done();
       });
     });
